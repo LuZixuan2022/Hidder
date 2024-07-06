@@ -9,8 +9,7 @@ body:
     validations: true
   - type: checkboxes
     attributes:
-      value: "### 你正在使用什么操作系统？"
-      label: 请选择一项
+      label: 请选择你正在使用的操作系统
       options:
       - label: Windows XP之前(不包含Windows XP)
       - label: Windows XP
@@ -25,8 +24,7 @@ body:
     validations: true
   - type: checkboxes
     attributes:
-      value: "### 你的操作系统是什么版本的？"
-      label: 请选择一项
+      label: 你的操作系统是什么版本的？
       placeholder: 请选择你正在使用的操作系统版本。
       options:
       - label: x64
