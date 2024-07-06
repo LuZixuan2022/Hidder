@@ -5,31 +5,31 @@
 using namespace std;
 typedef long long LL;
 //typedef struct _SYSTEMTIME {
-//	WORD wYear;// Äê
-//	WORD wMonth;// ÔÂ
-//	WORD wDayOfWeek;// ĞÇÆÚ£º0 ÎªĞÇÆÚÈÕ£¬1 ÎªĞÇÆÚÒ»£¬2 ÎªĞÇÆÚ¶ş¡­¡­
-//	WORD wDay;// ÈÕ
-//	WORD wHour;// Ê±
-//	WORD wMinute;//·Ö
-//	WORD wSecond;//Ãë
-//	WORD wMilliseconds;// ºÁÃë
+//	WORD wYear;// å¹´
+//	WORD wMonth;// æœˆ
+//	WORD wDayOfWeek;// æ˜ŸæœŸï¼š0 ä¸ºæ˜ŸæœŸæ—¥ï¼Œ1 ä¸ºæ˜ŸæœŸä¸€ï¼Œ2 ä¸ºæ˜ŸæœŸäºŒâ€¦â€¦
+//	WORD wDay;// æ—¥
+//	WORD wHour;// æ—¶
+//	WORD wMinute;//åˆ†
+//	WORD wSecond;//ç§’
+//	WORD wMilliseconds;// æ¯«ç§’
 //}SYSTEMTIME,*PSYSTEMTIME;
-void SetFont(int r, int c) {//µ÷Õû¿ØÖÆÌ¨×ÖÌå
+void SetFont(int r, int c) {//è°ƒæ•´æ§åˆ¶å°å­—ä½“
 	CONSOLE_FONT_INFOEX cfi;
-	wcscpy_s(cfi.FaceName, L"ºÚÌå");//×ÖÌå
+	wcscpy_s(cfi.FaceName, L"é»‘ä½“");//å­—ä½“
 	cfi.cbSize = sizeof cfi;
 	cfi.nFont = 0;
-	cfi.dwFontSize.X = r;//Ã¿¸ö×Ö·ûµÄ¿í
-	cfi.dwFontSize.Y = c;//Ã¿¸ö×Ö·ûµÄ¸ß
+	cfi.dwFontSize.X = r;//æ¯ä¸ªå­—ç¬¦çš„å®½
+	cfi.dwFontSize.Y = c;//æ¯ä¸ªå­—ç¬¦çš„é«˜
 	cfi.FontFamily = FF_DONTCARE;
-	cfi.FontWeight = FW_NORMAL;//²»¼Ó´Ö
+	cfi.FontWeight = FW_NORMAL;//ä¸åŠ ç²—
 	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 }
-void SetColor(UINT uFore, UINT uBack) {//µ÷Õû¿ØÖÆÌ¨Ò»²¿·ÖµÄÑÕÉ«
+void SetColor(UINT uFore, UINT uBack) {//è°ƒæ•´æ§åˆ¶å°ä¸€éƒ¨åˆ†çš„é¢œè‰²
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(handle, uFore + uBack * 0x10);
 }
-void SetTitle(LPCWSTR lpTitle) {//»»¿ØÖÆÌ¨±êÌâ
+void SetTitle(LPCWSTR lpTitle) {//æ¢æ§åˆ¶å°æ ‡é¢˜
 	SetConsoleTitle(lpTitle);
 }
 string s,st="md ";
@@ -37,20 +37,21 @@ char S[1000],t;
 int flag;
 LL lst,Time, prt;
 int main() {
-	SetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE, GetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE) & ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);//Òş²Ø×î´ó»¯¡¢×îĞ¡»¯°´Å¥
+	SetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE, GetWindowLongPtrA(GetConsoleWindow(), GWL_STYLE) & ~WS_SIZEBOX & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);//éšè—æœ€å¤§åŒ–ã€æœ€å°åŒ–æŒ‰é’®
 	SetFont(7, 14);
-	system("mode con cols=40 lines=40");//½«¿ØÖÆÌ¨µ÷Îª40ĞĞ10ÁĞ
+	system("mode con cols=40 lines=40");//å°†æ§åˆ¶å°è°ƒä¸º40è¡Œ10åˆ—
 	SetColor(4, 15);
-	SetTitle(L"Hidder");
+	SetTitle(L"Hidder 0.1");
 	while(true){
+		system("cls");
 		SetColor(4, 15);
-		printf("ÄãÏëÒş²ØÎÄ¼ş¼Ğ»¹ÊÇ²é¿´Òş²ØµÄÎÄ¼ş¼Ğ£¿\n\n");
+		printf("ä½ æƒ³éšè—æ–‡ä»¶å¤¹è¿˜æ˜¯æŸ¥çœ‹éšè—çš„æ–‡ä»¶å¤¹ï¼Ÿ\n\n");
 		if (flag == 0)	SetColor(6, 7);
 		printf("                        ");
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 0)	SetColor(6, 7);
-		printf("   ĞÂ½¨²¢Òş²ØÎÄ¼ş¼Ğ     ");
+		printf("   æ–°å»ºå¹¶éšè—æ–‡ä»¶å¤¹     ");
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 0)	SetColor(6, 7);
@@ -62,7 +63,7 @@ int main() {
 		printf("\n");
 
 		if (flag == 1)	SetColor(6, 7);
-		printf("    µ÷ÕûÒş²ØµÄÎÄ¼ş¼Ğ    ");
+		printf("    è°ƒæ•´éšè—çš„æ–‡ä»¶å¤¹    ");
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 1)	SetColor(6, 7);
@@ -74,7 +75,7 @@ int main() {
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 2)	SetColor(6, 7);
-		printf("   ´ò¿ªÒş²ØµÄÎÄ¼ş(¼Ğ)   ");
+		printf("   æ‰“å¼€éšè—çš„æ–‡ä»¶(å¤¹)   ");
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 2)	SetColor(6, 7);
@@ -86,7 +87,7 @@ int main() {
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 3)	SetColor(6, 7);
-		printf("  Òş²ØÒÑ´æÔÚµÄÎÄ¼ş(¼Ğ)  ");
+		printf("  éšè—å·²å­˜åœ¨çš„æ–‡ä»¶(å¤¹)  ");
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 3)	SetColor(6, 7);
@@ -98,7 +99,7 @@ int main() {
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 4)	SetColor(6, 7);
-		printf("½â³ıÒş²ØÒÑ´æÔÚµÄÎÄ¼ş(¼Ğ)");
+		printf("è§£é™¤éšè—å·²å­˜åœ¨çš„æ–‡ä»¶(å¤¹)");
 		SetColor(4, 15);
 		printf("\n");
 		if (flag == 4)	SetColor(6, 7);
@@ -106,12 +107,12 @@ int main() {
 		SetColor(4, 15);
 
 		SetColor(3, 15);
-		printf("\n\nÊ¹ÓÃ¡üºÍ¡ı¼üÀ´µ÷ÕûÄãµÄÑ¡Ôñ,\n   °´Enter¼üÈ·¶¨¡£");
+		printf("\n\nä½¿ç”¨â†‘å’Œâ†“é”®æ¥è°ƒæ•´ä½ çš„é€‰æ‹©,\n   æŒ‰Enteré”®ç¡®å®šã€‚");
 		SYSTEMTIME ST = {};
 		GetLocalTime(&ST);
 		Time = ST.wSecond * 1000 + ST.wMilliseconds, prt = ST.wSecond * 1000 + ST.wMilliseconds-1000;
-		while (true) {//Ñ¡ÔñÒş²ØÎÄ¼ş¼Ğ»¹ÊÇ²é¿´Òş²ØµÄÎÄ¼ş¼Ğ
-			if (GetKeyState(VK_RETURN) < 0)	break;//°´[Enter]±íÊ¾Ñ¡ÔñÏÖÔÚµÄÑ¡Ïî 
+		while (true) {//é€‰æ‹©éšè—æ–‡ä»¶å¤¹è¿˜æ˜¯æŸ¥çœ‹éšè—çš„æ–‡ä»¶å¤¹
+			if (GetKeyState(VK_RETURN) < 0)	break;//æŒ‰[Enter]è¡¨ç¤ºé€‰æ‹©ç°åœ¨çš„é€‰é¡¹ 
 			GetLocalTime(&ST);
 			Time = ST.wSecond*1000+ST.wMilliseconds;
 			LL now = 0;
@@ -127,13 +128,13 @@ int main() {
 			else	continue;
 			system("cls");
 			SetColor(4, 15);
-			printf("ÄãÏëÒş²ØÎÄ¼ş¼Ğ»¹ÊÇ²é¿´Òş²ØµÄÎÄ¼ş¼Ğ£¿\n\n");
+			printf("ä½ æƒ³éšè—æ–‡ä»¶å¤¹è¿˜æ˜¯æŸ¥çœ‹éšè—çš„æ–‡ä»¶å¤¹ï¼Ÿ\n\n");
 			if (flag == 0)	SetColor(6, 7);
 			printf("                        ");
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 0)	SetColor(6, 7);
-			printf("   ĞÂ½¨²¢Òş²ØÎÄ¼ş¼Ğ     ");
+			printf("   æ–°å»ºå¹¶éšè—æ–‡ä»¶å¤¹     ");
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 0)	SetColor(6, 7);
@@ -145,7 +146,7 @@ int main() {
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 1)	SetColor(6, 7);
-			printf("    µ÷ÕûÒş²ØµÄÎÄ¼ş¼Ğ    ");
+			printf("    è°ƒæ•´éšè—çš„æ–‡ä»¶å¤¹    ");
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 1)	SetColor(6, 7);
@@ -157,7 +158,7 @@ int main() {
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 2)	SetColor(6, 7);
-			printf("   ´ò¿ªÒş²ØµÄÎÄ¼ş(¼Ğ)   ");
+			printf("   æ‰“å¼€éšè—çš„æ–‡ä»¶(å¤¹)   ");
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 2)	SetColor(6, 7);
@@ -169,7 +170,7 @@ int main() {
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 3)	SetColor(6, 7);
-			printf("  Òş²ØÒÑ´æÔÚµÄÎÄ¼ş(¼Ğ)  ");
+			printf("  éšè—å·²å­˜åœ¨çš„æ–‡ä»¶(å¤¹)  ");
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 3)	SetColor(6, 7);
@@ -181,7 +182,7 @@ int main() {
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 4)	SetColor(6, 7);
-			printf("½â³ıÒş²ØÒÑ´æÔÚµÄÎÄ¼ş(¼Ğ)");
+			printf("è§£é™¤éšè—å·²å­˜åœ¨çš„æ–‡ä»¶(å¤¹)");
 			SetColor(4, 15);
 			printf("\n");
 			if (flag == 4)	SetColor(6, 7);
@@ -189,7 +190,7 @@ int main() {
 			SetColor(4, 15);
 
 			SetColor(3, 15);
-			printf("\n\nÊ¹ÓÃ¡üºÍ¡ı¼üÀ´µ÷ÕûÄãµÄÑ¡Ôñ,\n   °´Enter¼üÈ·¶¨¡£");
+			printf("\n\nä½¿ç”¨â†‘å’Œâ†“é”®æ¥è°ƒæ•´ä½ çš„é€‰æ‹©,\n   æŒ‰Enteré”®ç¡®å®šã€‚");
 
 			GetLocalTime(&ST);
 			if (lst != now)	prt = ST.wSecond * 1000 + ST.wMilliseconds;
@@ -198,77 +199,77 @@ int main() {
 		if (flag == 0) {
 			system("cls");
 			SetColor(4, 15);
-			printf("\nÄãÏë´´½¨Ò»¸öÊ²Ã´Ãû×ÖµÄÒş²ØÎÄ¼ş¼Ğ?");
+			printf("\nä½ æƒ³åˆ›å»ºä¸€ä¸ªä»€ä¹ˆåå­—çš„éšè—æ–‡ä»¶å¤¹?");
 			SetColor(6, 15);
-			cin >> s;//ÊäÈëÎÄ¼ş¼ĞÃû
+			cin >> s;//è¾“å…¥æ–‡ä»¶å¤¹å
 			if (s.size() > 240) {
 				SetColor(4, 15);
 				system("cls");
-				printf("\nÎÄ¼ş¼ĞÃûÌ«³¤£¡");//Windows¶ÔÎÄ¼şÂ·¾¶ÓĞÏŞÖÆ
+				printf("\næ–‡ä»¶å¤¹åå¤ªé•¿ï¼");//Windowså¯¹æ–‡ä»¶è·¯å¾„æœ‰é™åˆ¶
 				Sleep(2500);
 				return 0;
 			}
-			st += s;//ÓÃmdÃüÁî´´½¨ÎÄ¼ş¼Ğ
+			st += s;//ç”¨mdå‘½ä»¤åˆ›å»ºæ–‡ä»¶å¤¹
 			for (int i = 0; i < st.size(); i++)	S[i] = st[i];
 			system(S);
 			SetColor(4, 15);
 			system("cls");
-			printf("Çë´æÈëÎÄ¼ş,È»ºó°´ÏÂ");//µÈ´ı´æ´¢ÎÄ¼şµ½ÎÄ¼ş¼ĞÖĞ
+			printf("è¯·å­˜å…¥æ–‡ä»¶,ç„¶åæŒ‰ä¸‹");//ç­‰å¾…å­˜å‚¨æ–‡ä»¶åˆ°æ–‡ä»¶å¤¹ä¸­
 			SetColor(6, 15);
 			printf("Enter");
 			SetColor(4, 15);
-			printf("¼ü");
+			printf("é”®");
 			cin.get();
 			cin.get();
-			st = "attrib +s +h " + s;//ÓÃattribÃüÁîÒş²ØÎÄ¼ş¼Ğ
+			st = "attrib +s +h " + s;//ç”¨attribå‘½ä»¤éšè—æ–‡ä»¶å¤¹
 			for (int i = 0; i < st.size(); i++)	S[i] = st[i];
 			system(S);
 			system("cls");
-			cout << "³É¹¦£¡";
+			cout << "æˆåŠŸï¼";
 			Sleep(2500);
 		}
 		if (flag == 1) {
 			system("cls");
 			SetColor(4, 15);
-			printf("\nÄãÏëÏòÒ»¸öÊ²Ã´Ãû×ÖµÄÒş²ØÎÄ¼ş¼ĞÄÚ´æÈëÎÄ¼ş£¿\n    ");
+			printf("\nä½ æƒ³å‘ä¸€ä¸ªä»€ä¹ˆåå­—çš„éšè—æ–‡ä»¶å¤¹å†…å­˜å…¥æ–‡ä»¶ï¼Ÿ\n    ");
 			SetColor(6, 15);
 			cin >> s;
 			if (s.size() > 240) {
 				SetColor(4, 15);
 				system("cls");
-				printf("\nÎÄ¼ş¼ĞÃûÌ«³¤£¡");//Windows¶ÔÎÄ¼şÂ·¾¶ÓĞÏŞÖÆ
+				printf("\næ–‡ä»¶å¤¹åå¤ªé•¿ï¼");//Windowså¯¹æ–‡ä»¶è·¯å¾„æœ‰é™åˆ¶
 				Sleep(2500);
 				return 0;
 			}
-			st = "attrib -s -h " + s;//ÓÃattribÃüÁî½â³ıÒş²Ø
+			st = "attrib -s -h " + s;//ç”¨attribå‘½ä»¤è§£é™¤éšè—
 			for (int i = 0; i < st.size(); i++)	S[i] = st[i];
 			system(S);
 			SetColor(4, 15);
 			system("cls");
-			printf("Çë´æÈëÎÄ¼ş,È»ºó°´ÏÂ");//µÈ´ı´æ´¢ÎÄ¼şµ½ÎÄ¼ş¼ĞÖĞ
+			printf("è¯·å­˜å…¥æ–‡ä»¶,ç„¶åæŒ‰ä¸‹");//ç­‰å¾…å­˜å‚¨æ–‡ä»¶åˆ°æ–‡ä»¶å¤¹ä¸­
 			SetColor(6, 15);
 			printf("Enter");
 			SetColor(4, 15);
-			printf("¼ü");
+			printf("é”®");
 			cin.get();
 			cin.get();
-			st = "attrib +s +t " + s;//ÓÃattribÃüÁî»Ö¸´Òş²Ø
+			st = "attrib +s +t " + s;//ç”¨attribå‘½ä»¤æ¢å¤éšè—
 			for (int i = 0; i < st.size(); i++)	S[i] = st[i];
 			system(S);
 			system("cls");
-			cout << "³É¹¦£¡";
+			cout << "æˆåŠŸï¼";
 			Sleep(2500);
 		}
 		if (flag == 2) {
 			system("cls");
 			SetColor(4, 15);
-			printf("\nÄãÏë´ò¿ªÒ»¸öÊ²Ã´Ãû×ÖµÄÒş²ØÎÄ¼ş(¼Ğ)£¿\n    ");
+			printf("\nä½ æƒ³æ‰“å¼€ä¸€ä¸ªä»€ä¹ˆåå­—çš„éšè—æ–‡ä»¶(å¤¹)ï¼Ÿ\n    ");
 			SetColor(6, 15);
 			cin >> s;
 			if (s.size() > 240) {
 				SetColor(4, 15);
 				system("cls");
-				printf("\nÎÄ¼ş¼ĞÃûÌ«³¤£¡");//Windows¶ÔÎÄ¼şÂ·¾¶ÓĞÏŞÖÆ
+				printf("\næ–‡ä»¶å¤¹åå¤ªé•¿ï¼");//Windowså¯¹æ–‡ä»¶è·¯å¾„æœ‰é™åˆ¶
 				Sleep(2500);
 				return 0;
 			}
@@ -277,48 +278,48 @@ int main() {
 			system(S);
 			SetColor(4, 15);
 			system("cls");
-			cout << "³É¹¦£¡";
+			cout << "æˆåŠŸï¼";
 			Sleep(2500);
 		}
 		if (flag == 3) {
 			system("cls");
 			SetColor(4, 15);
-			printf("\nÄãÏëÒş²ØÒ»¸öÊ²Ã´Ãû×ÖµÄÎÄ¼ş(¼Ğ)?");
+			printf("\nä½ æƒ³éšè—ä¸€ä¸ªä»€ä¹ˆåå­—çš„æ–‡ä»¶(å¤¹)?");
 			SetColor(6, 15);
-			cin >> s;//ÊäÈëÎÄ¼ş¼ĞÃû
+			cin >> s;//è¾“å…¥æ–‡ä»¶å¤¹å
 			if (s.size() > 240) {
 				SetColor(4, 15);
 				system("cls");
-				printf("\nÎÄ¼ş¼ĞÃûÌ«³¤£¡");//Windows¶ÔÎÄ¼şÂ·¾¶ÓĞÏŞÖÆ
+				printf("\næ–‡ä»¶å¤¹åå¤ªé•¿ï¼");//Windowså¯¹æ–‡ä»¶è·¯å¾„æœ‰é™åˆ¶
 				Sleep(2500);
 				return 0;
 			}
-			st = "attrib +s +h " + s;//ÓÃattribÃüÁîÒş²ØÎÄ¼ş¼Ğ
+			st = "attrib +s +h " + s;//ç”¨attribå‘½ä»¤éšè—æ–‡ä»¶å¤¹
 			for (int i = 0; i < st.size(); i++)	S[i] = st[i];
 			system(S);
 			SetColor(4, 15);
 			system("cls");
-			cout << "³É¹¦£¡";
+			cout << "æˆåŠŸï¼";
 			Sleep(2500);
 		}
 		if (flag == 4) {
 			system("cls");
 			SetColor(4, 15);
-			printf("\nÄãÏë½â³ıÒş²ØÒ»¸öÊ²Ã´Ãû×ÖµÄÎÄ¼ş(¼Ğ)£¿\n    ");
+			printf("\nä½ æƒ³è§£é™¤éšè—ä¸€ä¸ªä»€ä¹ˆåå­—çš„æ–‡ä»¶(å¤¹)ï¼Ÿ\n    ");
 			SetColor(6, 15);
 			cin >> s;
 			if (s.size() > 240) {
 				SetColor(4, 15);
 				system("cls");
-				printf("\nÎÄ¼ş¼ĞÃûÌ«³¤£¡");//Windows¶ÔÎÄ¼şÂ·¾¶ÓĞÏŞÖÆ
+				printf("\næ–‡ä»¶å¤¹åå¤ªé•¿ï¼");//Windowså¯¹æ–‡ä»¶è·¯å¾„æœ‰é™åˆ¶
 				Sleep(2500);
 				return 0;
 			}
-			st = "attrib -s -h " + s;//ÓÃattribÃüÁî½â³ıÒş²Ø
+			st = "attrib -s -h " + s;//ç”¨attribå‘½ä»¤è§£é™¤éšè—
 			for (int i = 0; i < st.size(); i++)	S[i] = st[i];
 			system(S);
 			system("cls");
-			cout << "³É¹¦£¡";
+			cout << "æˆåŠŸï¼";
 			Sleep(2500);
 		}
 	}
