@@ -1,0 +1,41 @@
+name: Bug报告
+description: 报告一个bug
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "### 尽量详细地描述一下这个bug吧"
+    validations=true
+  - type: checkboxes
+    attributes:
+      value: "### 你正在使用什么操作系统？"
+      label: 请选择一项
+      options:
+      - label: Windows XP之前(不包含Windows XP)
+      - label: Windows XP
+      - label: Windows Vista
+      - label: Windows 7
+      - label: Windows 8/8.1
+      - label: Windows 10
+      - label: Windows 11
+      - label: Windows Service
+      - label: Linux上的Wine
+      - label: 其它
+    validations=true
+  - type: checkboxes
+    attributes:
+      value: "### 你的操作系统是什么版本的？"
+      label: 请选择一项
+      placeholder: 请选择你正在使用的操作系统版本。
+      options:
+      - label: x64
+      - label: x32
+      - label: Windows on arm
+      - label: Linux上的Wine
+      - label: 其他
+    validations=true
+  - type: textarea
+    attributes: 
+      placeholder: 还有什么附加的内容要说吗？
+      
