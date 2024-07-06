@@ -34,6 +34,7 @@ body:
       - label: 其他
     validations: true
   - type: textarea
+    label: 附加内容
     attributes: 
       placeholder: 还有什么附加的内容要说吗？
       
