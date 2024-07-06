@@ -8,6 +8,11 @@ body:
       value: "尽量详细地描述一下这个bug吧!"
     validations: 
       validations: true
+  - type: markdown
+    attributes:
+      value: "如何重现？"
+    validations: 
+      validations: true
   - type: checkboxes
     attributes:
       label: 请选择你正在使用的操作系统
@@ -30,8 +35,10 @@ body:
       options:
       - label: x64
       - label: x32
-      - label: Windows on arm
-      - label: Linux上的Wine
+      - label: Windows on arm 64
+      - label: Windows on arm 32
+      - label: Linux上的Wine x32
+      - label: Linux上的Wine x64
       - label: 其他
     validations: 
       validations: true
