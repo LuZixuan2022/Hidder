@@ -7,7 +7,7 @@ body:
     attributes:
       label: "尽量详细地描述一下这个bug吧!"
       placeholder: "描述一下这个bug"
-    validations： 
+    validations: 
       validations: true
   - type: checkboxes
     attributes:
@@ -23,7 +23,7 @@ body:
       - label: Windows Service
       - label: Linux上的Wine
       - label: 其它
-    validations： 
+    validations: 
       validations: true
   - type: checkboxes
     attributes:
@@ -35,12 +35,12 @@ body:
       - label: Windows on arm
       - label: Linux上的Wine
       - label: 其他
-    validations： 
+    validations: 
       validations: true
   - type: markdown
     attributes:
       label: 还有什么要补充的吗？
-    validations： 
+    validations: 
       validations: false
     
       
