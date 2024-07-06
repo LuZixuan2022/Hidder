@@ -28,7 +28,6 @@ body:
   - type: checkboxes
     attributes:
       label: 你的操作系统是什么版本的？
-      placeholder: 请选择你正在使用的操作系统版本。
       options:
       - label: x64
       - label: x32
@@ -39,7 +38,7 @@ body:
       validations: true
   - type: markdown
     attributes:
-      label: 还有什么要补充的吗？
+      value: 还有什么要补充的吗？
     validations: 
       validations: false
     
