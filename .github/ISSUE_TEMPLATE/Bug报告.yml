@@ -5,7 +5,9 @@ labels: ["bug"]
 body:
   - type: markdown
     attributes:
-      value: "### 尽量详细地描述一下这个bug吧"
+      label: "尽量详细地描述一下这个bug吧!"
+      placeholder: "描述一下这个bug"
+    validations： 
       validations: true
   - type: checkboxes
     attributes:
@@ -21,6 +23,7 @@ body:
       - label: Windows Service
       - label: Linux上的Wine
       - label: 其它
+    validations： 
       validations: true
   - type: checkboxes
     attributes:
@@ -32,10 +35,12 @@ body:
       - label: Windows on arm
       - label: Linux上的Wine
       - label: 其他
-    validations: true
+    validations： 
+      validations: true
   - type: markdown
     attributes:
       label: 还有什么要补充的吗？
+    validations： 
       validations: false
     
       
