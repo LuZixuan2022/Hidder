@@ -6,7 +6,6 @@ body:
   - type: markdown
     attributes:
       value: "尽量详细地描述一下这个bug吧!"
-      placeholder: "描述一下这个bug"
     validations: 
       validations: true
   - type: checkboxes
