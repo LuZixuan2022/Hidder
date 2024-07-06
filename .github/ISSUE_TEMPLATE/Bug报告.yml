@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: "### 尽量详细地描述一下这个bug吧"
-    validations: true
+      validations: true
   - type: checkboxes
     attributes:
       label: 请选择你正在使用的操作系统
@@ -21,7 +21,7 @@ body:
       - label: Windows Service
       - label: Linux上的Wine
       - label: 其它
-    validations: true
+      validations: true
   - type: checkboxes
     attributes:
       label: 你的操作系统是什么版本的？
@@ -34,7 +34,7 @@ body:
       - label: 其他
     validations: true
   - type: textarea
-    label: 附加内容
-    attributes: 
-      placeholder: 还有什么附加的内容要说吗？
+     attributes: 
+       label: 还有什么附加的内容要说吗？
+    
       
