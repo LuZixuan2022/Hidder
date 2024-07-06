@@ -33,8 +33,9 @@ body:
       - label: Linux上的Wine
       - label: 其他
     validations: true
-  - type: textarea
-     attributes: 
-       label: 还有什么附加的内容要说吗？
+  - type: markdown
+    attributes:
+      label: 还有什么要补充的吗？
+      validations: false
     
       
